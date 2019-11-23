@@ -1786,7 +1786,7 @@ class WhoisIl(WhoisEntry):
     regex = {
         'domain_name':        'domain: *(.+)',
         'expiration_date':    'validity: *(.+)',
-        'registrant':         'person: *(.+)',
+        'registrant_name':    'person: *(.+)',
         'registrant_address': 'address *(.+)',
         'dnssec':             'DNSSEC: *(.+)',
         'status':             'status: *(.+)',
@@ -2063,7 +2063,7 @@ class WhoisHk(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if 'ERROR: No entries found' in text or 'The domain has not been registered in text':
+        if 'ERROR: No entries found' in text or 'The domain has not been registered' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
