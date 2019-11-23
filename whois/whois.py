@@ -158,14 +158,14 @@ class NICClient(object):
             query_bytes = query
         s.send(bytes(query_bytes, 'utf-8') + b"\r\n")
         # recv returns bytes
-        d = b''
+        data = b''
         while True:
             try:
-                d = s.recv(4096)
+                data = s.recv(4096)
             except:
                 pass
-            response += d
-            if not d:
+            response += data
+            if not data:
                 break
         s.close()
 
