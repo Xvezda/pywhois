@@ -163,7 +163,7 @@ class NICClient(object):
             try:
                 data = s.recv(4096)
             except:
-                pass
+                continue
             response += data
             if not data:
                 break

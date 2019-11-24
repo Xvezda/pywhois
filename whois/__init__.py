@@ -85,7 +85,7 @@ def extract_domain(url):
 
     if not isinstance(url, str):
         url = url.decode('utf-8')
-    url = re.sub('^.*://', '', url)
+    url = re.sub('^.*?://', '', url)
     url = url.split('/')[0].lower()
 
     # find the longest suffix match
